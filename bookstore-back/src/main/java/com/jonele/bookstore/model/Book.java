@@ -1,8 +1,8 @@
 package com.jonele.bookstore.model;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
 
-import javax.persistence.Entity;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -10,20 +10,29 @@ import java.util.Date;
  */
 @Entity
 public class Book {
+
+    @Id @GeneratedValue
     private Long id;
 
+    @Column(length = 200)
     private String title;
 
+    @Column(length = 1000)
     private String description;
 
+    @Column(name = "unit_cost")
     private Float unitCost;
 
     private String isbn;
 
+    @Column(name = "publication_date")
+    @Temporal(TemporalType.DATE)
     private Date publicationDate;
 
+    @Column(name = "nb_of_pages")
     private Integer nbOfPages;
 
+    @Column(name = "image_url")
     private String imageUrl;
 
     private Language language;
@@ -98,5 +107,19 @@ public class Book {
 
     public void setLanguage(Language language) {
         this.language = language;
+    }
+
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", unitCost=" + unitCost +
+                ", isbn='" + isbn + '\'' +
+                ", publicationDate=" + publicationDate +
+                ", nbOfPages=" + nbOfPages +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", language=" + language +
+                '}';
     }
 }
