@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/JavaeeGettingStarted.iml" filepath="$PROJECT_DIR$/.idea/JavaeeGettingStarted.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookstore-back.iml" filepath="$PROJECT_DIR$/bookstore-back.iml" />
     </modules>
   </component>
 </project>
