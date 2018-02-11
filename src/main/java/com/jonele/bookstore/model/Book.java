@@ -35,7 +35,7 @@ public class Book {
     @Column(name = "image_url")
     private String imageUrl;
 
-    private Language language;
+    private com.jonele.bookstore.model.Language language;
 
     public Long getId() {
         return id;

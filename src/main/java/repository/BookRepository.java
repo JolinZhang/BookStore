@@ -41,7 +41,7 @@ public class BookRepository {
         TypedQuery<Book> query = em.createQuery("select b from Book b order by b.title", Book.class);
         return query.getResultList();
     }
-    
+
     public Long countAll(){
         TypedQuery<Long>  query =  em.createQuery("select count(b) from Book b", Long.class);
         return query.getSingleResult();
