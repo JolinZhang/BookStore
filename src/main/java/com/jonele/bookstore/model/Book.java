@@ -37,6 +37,22 @@ public class Book {
 
     private com.jonele.bookstore.model.Language language;
 
+    public Book(String isbn, String title, float unitCost, int nbOfPages, Language language, Date publicationDate, String imageUrl, String description) {
+        this.isbn = isbn;
+        this.title = title;
+        this.unitCost = unitCost;
+        this.nbOfPages = nbOfPages;
+        this.language = language;
+        this.publicationDate = publicationDate;
+        this.imageUrl = imageUrl;
+        this.description = description;
+
+    }
+
+    public Book() {
+    }
+
+
     public Long getId() {
         return id;
     }

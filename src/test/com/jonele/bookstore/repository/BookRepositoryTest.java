@@ -13,6 +13,8 @@ import repository.BookRepository;
 
 import javax.inject.Inject;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 /**
@@ -26,9 +28,28 @@ public class BookRepositoryTest {
 
     @Test
     public void create() throws Exception {
-
+        // Testing counting books
         assertEquals(Long.valueOf(0), bookRepository.countAll());
         assertEquals(0, bookRepository.findAll().size());
+        // Create a book
+        Book book = new Book("isbn", "a title", 12F, 123, Language.ENGLISH, new Date(),"http://banana", "description" );
+        book = bookRepository.create(book);
+        Long bookId  = book.getId();
+        //check created book
+        assertNotNull(bookId);
+        Book bookFound = bookRepository.find(bookId);
+        assertEquals("a title", bookFound.getTitle());
+
+        // Testing counting books
+        assertEquals(Long.valueOf(1), bookRepository.countAll());
+        assertEquals(1, bookRepository.findAll().size());
+
+        //delete book
+        bookRepository.delete(bookId);
+        // Testing counting books
+        assertEquals(Long.valueOf(0), bookRepository.countAll());
+        assertEquals(0, bookRepository.findAll().size());
+
     }
 
     @Deployment
